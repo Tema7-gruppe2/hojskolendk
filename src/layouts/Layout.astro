@@ -1,0 +1,35 @@
+---
+import Button from '../components/Button.astro';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>HØJSKOLENDK</title>
+	</head>
+	<body>
+        <header>Det her er headeren</header>
+		<nav>
+			<a href="/">Logo</a>
+			<a href="">Rejsekalender</a>
+			<a href="">Højskoleophold</a>
+			<a href="">Sommerhøjskole</a>
+			<a href="">Priser</a>
+			<a href="">Om os</a>
+			<a href="">Kontakt os</a>
+			<Button title="Bestil ophold" variant="primary"/>
+
+
+
+			
+
+		</nav>
+        
+		<slot/>
+        <footer>FOOTER TBD</footer>
+	</body>
+</html>
