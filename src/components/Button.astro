@@ -2,7 +2,10 @@
 const { title, variant } = Astro.props;
 ---
 
-<button class={variant}>{title}</button>
+<button class={variant}>{title}
+  <slot />
+</button>
+
 
 <style>
     button {
@@ -14,17 +17,18 @@ const { title, variant } = Astro.props;
         font-size: 0.9rem;
         font-weight: bold;
         cursor: pointer;
-
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
 
-    .secondary {
+    button.secondary {
         background-color: var(--cta-secondary);
         color: var(--color-text-secondary);
-        border: none;
-        border-radius: 4px;
-        padding: 16px 24px;
-        font-size: 0.9rem;
-        font-weight: bold;
-        cursor: pointer;
+    }
+
+    button :global(svg) {
+        flex-shrink: 0;
     }
 </style>
