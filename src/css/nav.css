@@ -24,3 +24,10 @@ a {
   flex-direction: row;
   gap: 1.8rem;
 }
+
+nav {
+  background-color: var(--color-bg-primary);
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+}
