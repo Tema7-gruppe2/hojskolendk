@@ -1,0 +1,200 @@
+<section>
+  <h2 class="h2-picturegrid">Vælg dit eventyr</h2>
+  <p class="paragraph-picturegrid">HØJSKOLENDK er en dansk højskole for unge i alderen 18-28 år. Vi brænder for oplevelser, fællesskabet og det gode eventyr.</p>
+  <div class="picture-grid">
+    <a class="picture-card" href="/rejser/picture1" aria-label="Åbn billede 1">
+        <span class="ophold-længde">90 dage</span>
+      <img src="/images/picture1.jpg" alt="billede 1" class="w-full h-auto" />
+      <span class="picture-card__title">Maldiverne, Sri Lanka, Bali, Gili Islands, Japan, Australien</span>
+    </a>
+
+    <a class="picture-card" href="/rejser/picture2" aria-label="Åbn billede 2">
+         <span class="ophold-længde">90 dage</span>
+      <img src="/images/picture2.jpg" alt="billede 2" class="w-full h-auto" />
+      <span class="picture-card__title">Brasilien, Colombia, Costa Rica, Mexico</span>
+    </a>
+
+    <a class="picture-card" href="/rejser/picture3" aria-label="Åbn billede 3">
+        <span class="ophold-længde">90 dage</span>
+      <img src="/images/picture3.jpg" alt="billede 3" class="w-full h-auto" />
+      <span class="picture-card__title">Australien, New Zealand, Vietnam, Bali, Gili Islands, Lombok</span>
+    </a>
+
+    <a class="picture-card" href="/rejser/picture4" aria-label="Åbn billede 4">
+        <span class="ophold-længde">90 dage</span>
+      <img src="/images/picture4.jpg" alt="billede 4" class="w-full h-auto" />
+      <span class="picture-card__title">Hawaii, Australien, Japan, Bali, Gili Islands</span>
+    </a>
+
+    <a class="picture-card" href="/rejser/picture5" aria-label="Åbn billede 5">
+        <span class="ophold-længde">90 dage</span>
+      <img src="/images/picture5.jpg" alt="billede 5" class="w-full h-auto" />
+      <span class="picture-card__title">Maldiverne, Sri Lanka, Bali, Gili Islands</span>
+    </a>
+  </div>
+
+  <button class="se-alle-rejser-cta">Se alle rejser</button>
+
+  <style>
+    .h2-picturegrid {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    
+   .ophold-længde {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: #CE5501;
+      color: #fff;
+      padding: 4px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+      z-index: 3; /* above the overlay */
+    }
+
+    .paragraph-picturegrid {
+      text-align: center;
+      margin-bottom: 50px;
+      color: #555;
+      max-width: 500px;
+      margin: 0 auto;
+      
+    }
+
+    
+    .picture-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 50px;
+    }
+
+    
+    .picture-grid a {
+      display: block;
+      
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      transition: border-color 150ms ease, box-shadow 150ms ease;
+    }
+
+    .picture-grid a:hover {
+      border-color: #0070f3;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .picture-grid img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+
+    
+    .picture-grid a:nth-child(1),
+    .picture-grid a:nth-child(2),
+    .picture-grid a:nth-child(3) {
+      grid-column: span 2;
+    }
+
+    
+    .picture-grid a:nth-child(4),
+    .picture-grid a:nth-child(5) {
+      grid-column: span 3;
+    }
+
+    .se-alle-rejser-cta {
+      margin-top: 24px;
+      padding: 12px 24px;
+      background-color: #CE5501;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0 auto;
+        display: block;
+        margin-top: 70px;
+    }
+
+    .se-alle-rejser-cta:hover {
+      background-color: #9f4302;
+    }
+
+    .picture-grid a.picture-card {
+      position: relative;
+      isolation: isolate; /* keeps overlay layering predictable */
+      display: block;
+      overflow: hidden;
+      background: #fff;
+      transition: border-color 150ms ease, box-shadow 150ms ease;
+    }
+
+    .picture-card__title {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      padding: 10px 12px;
+    
+      color: #000000;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    /* Fade overlay: light (top) -> dark (bottom) */
+    .picture-grid a.picture-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.00) 0%,
+        rgba(0, 0, 0, 0.55) 100%
+      );
+      z-index: 1;
+      pointer-events: none; /* keeps the link clickable */
+    }
+
+    /* Ensure image is behind overlay */
+    .picture-grid a.picture-card img {
+      position: relative;
+      z-index: 0;
+      /* remove/keep your brightness filter as you like */
+      filter: none;
+    }
+
+    /* Ensure text is above overlay */
+    .picture-card__title {
+      z-index: 2;
+      /* if you want, you can remove the title background now */
+      background: none;
+      color: #fff;
+    }
+
+    /* Optional: darken image slightly so text is readable */
+    .picture-card img {
+      filter: brightness(0.9);
+      transition: filter 150ms ease;
+    }
+    .picture-card:hover img {
+      filter: brightness(0.8);
+    }
+
+    /* Optional: stack nicely on small screens */
+    @media (max-width: 640px) {
+      .picture-grid {
+        grid-template-columns: 1fr;
+      }
+      .picture-grid a:nth-child(1),
+      .picture-grid a:nth-child(2),
+      .picture-grid a:nth-child(3),
+      .picture-grid a:nth-child(4),
+      .picture-grid a:nth-child(5) {
+        grid-column: auto;
+      }
+    }
+  </style>
+</section>
