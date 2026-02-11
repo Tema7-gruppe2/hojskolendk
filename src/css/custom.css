@@ -1,18 +1,21 @@
 :root {
-    --color-bg-primary: white;
-    --color-bg-secondary: #CE5501;
-    --color-bg-tertirary: #f8e6d9;
-    --color-bg-quaternary: #d5e7ee;
+  --color-bg-primary: white;
+  --color-bg-secondary: #ce5501;
+  --color-bg-tertirary: #f8e6d9;
+  --color-bg-quaternary: #d5e7ee;
 
-    --color-text-primary: white;
-    --color-text-secondary: #000022;
+  --color-text-primary: white;
+  --color-text-secondary: #000022;
 
-    --header-color-bg: #ebbb99;
+  --header-color-bg: #ebbb99;
 
-    --cta-primary: #CE5501;
-    --cta-secondary: white;
-    --cta-tertiary: #000022;
+  --cta-primary: #ce5501;
+  --cta-secondary: white;
+  --cta-tertiary: #000022;
 
-    --label-primary: #ce5501;
-    --label-secondary: #2e86ab;
+  --label-primary: #ce5501;
+  --label-secondary: #2e86ab;
+
+  --font-primary: "Dela Gothic One", sans-serif;
+  --font-secondary: "Poppins", sans-serif;
 }
