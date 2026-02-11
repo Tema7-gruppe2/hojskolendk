@@ -2,6 +2,9 @@
 import "../css/custom.css";
 import "../css/main.css";
 import Button from '../components/Button.astro';
+import Header from '../components/Header.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <html lang="en">
@@ -11,9 +14,12 @@ import Button from '../components/Button.astro';
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>HØJSKOLENDK</title>
+		<title>HØJSKOLENDK - Forside</title>
 	</head>
 	<body>
+        <Header/>
+		<Nav/>
+        <main>
         <header>Det her er headeren</header>
 		<nav>
 			<a href="/">Logo</a>
@@ -33,6 +39,7 @@ import Button from '../components/Button.astro';
 		</nav>
         
 		<slot/>
-        <footer>FOOTER TBD</footer>
+		</main>
+        <Footer/>
 	</body>
 </html>
