@@ -28,19 +28,19 @@
       <p class="nedre_p">
         Vi håber du finder svar på dine spørgsmål og hvis ikke, er du altid
         velkommen til at ringe til os på kontoret på tlf. <strong>7027 9007</strong>
-        eller skrive til os på <strong> <a href="mailto:info@hojskolenk.dk">info@hojskolenk.dk</a>
+        eller skrive til os på <strong> <a href="mailto:info@hojskolendk.dk">info@hojskolendk.dk</a>
       </p> </strong> 
 
       <div class="contact-buttons">
         <a href="tel:70279007" class="btn primary">7027 9007</a>
-        <a href="mailto:info@hojskolenk.dk" class="btn secondary">info@hojskolenk.dk</a>
+        <a href="mailto:info@hojskolendk.dk" class="btn secondary">info@hojskolendk.dk</a>
       </div>
 
       <p class="hours">Mandag – Fredag kl. 10.00 – 17.00.</p>
     </div>
 
     <div class="right">
-      <h3>Ofte stillede spørgsmål</h3>
+      <h4>Ofte stillede spørgsmål</h4>
 
       <details>
         <summary>Hvor mange elever er der på et hold?</summary>
@@ -78,7 +78,7 @@
 
 <style>
   .faq-footer {
-    background: linear-gradient(180deg, #ff7a18, #ff4e00);
+    background-color: var(--color-bg-secondary);
     color: white;
     padding: 80px 20px;
   }
@@ -105,19 +105,22 @@
   }
 
   h2 {
-    font-size: 50px;
+    font-family: var(--font-primary);
+    font-size: 3rem;
     margin-bottom: 16px;
     line-height: 100%;
-    font-family: var(--font-primary);
+    font-weight:lighter;
   }
 
-  h3 {
-    font-size: 32px;
-    font-family: var(--font-primary);
+  h4 {
+    font-family:  var(--font-primary);
+    font-size: 20px;
+    font-weight:100;
+    margin-bottom: 12px;
   }
 
-  .right{
-font-family: var(--font-secondary);
+  p {
+    font-family:  var(--font-secondary);
   }
 
   .contact-buttons {
@@ -162,6 +165,7 @@ font-family: var(--font-secondary);
   }
 
   details {
+    font-family:  var(--font-secondary);
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     padding: 12px 0;
   }
@@ -169,9 +173,11 @@ font-family: var(--font-secondary);
   summary {
     cursor: pointer;
     font-weight: 600;
+    font-size: 0.9rem;
   }
 
   details p {
+    font-size: 0.8rem;
     margin-top: 8px;
     opacity: 0.9;
   }
