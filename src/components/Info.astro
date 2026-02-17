@@ -1,3 +1,214 @@
 ---
-
+import Button from "./Button.astro";
+const {title, subtitle, point, point1, point2, point3, point4, titleunder, titleunder2, image, yoga} = Astro.props;
 ---
+
+<article>
+    <div class="text-content">
+    <h2>{title}</h2>
+    <p>{subtitle}</p>
+    <ul>
+    <li>{point}</li>
+    <li>{point1}</li>
+    <li>{point2}</li>
+    <li>{point3}</li>
+    <li>{point4}</li>
+    </ul>
+    <p class="end">{titleunder}</p>
+    <p class="end">{titleunder2}</p>
+    </div>
+    <div class="info-image">
+    <img src={yoga} alt="Datoer" class="tilted-image2">
+    <div class="image-container">
+    <img src={image} alt="Datoer" class="tilted-image">
+    <div class="meeting">
+        <svg xmlns="http://www.w3.org/2000/svg" width="140" height="135" viewBox="0 0 177 172" fill="none">
+  <ellipse cx="88.5" cy="85.6566" rx="88.5" ry="85.6566" transform="matrix(-1 0 0 1 177 0)" fill="url(#paint0_linear_1396_1633)"/>
+  <defs>
+    <linearGradient id="paint0_linear_1396_1633" x1="88.5" y1="0" x2="88.5" y2="171.313" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DB6200"/>
+      <stop offset="1" stop-color="#C74E00"/>
+    </linearGradient>
+  </defs>
+</svg>
+<p class="meeting-text">Se datoer for infomøde her!</p>
+</div>
+</div>
+</div>
+</article>
+
+
+<style>
+
+article {
+background-color: #EDF5F7;
+height: 900px;
+
+}
+    
+h2 {
+    font-family: var(--font-primary);
+    font-size: 1.6rem;
+    font-weight: 100;
+    padding-top: 20px;
+    text-align: center;
+
+ }
+p {
+font-family: var(--font-secondary);
+color: var( --color-text-tertiary);
+font-size: 0.8rem;
+width: 100%;
+padding: 1rem 3rem 0rem 3rem;
+font-weight: bold;
+}
+
+ul {
+    font-family: var(--font-secondary);
+    padding: 1rem 4rem 0rem 4rem;
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+.end {
+    font-family: var(--font-secondary);
+    color: var(--color-text-secondary);
+    font-weight: normal;
+    font-size: 0.8rem;
+    padding: 1rem 3rem 0rem 3rem;
+}
+
+.info-image {
+    position: relative;
+    width: fit-content;
+    margin: 4rem 6rem 4rem 6rem;
+}
+
+.image-container {
+    position: relative;
+    z-index: 2;
+}
+
+.tilted-image {
+   transform: rotate(-4deg);
+   max-width: 400px;
+   width: 100%;
+   display: block;
+}
+
+.tilted-image2 {
+  position: absolute;
+    transform: rotate(-15deg);
+    max-width: 600px;
+    width: 100%;
+    top: 110px;
+    right: 30px;
+    z-index: 1;
+}
+
+.meeting {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    width: 140px;
+    height: 135px;
+    bottom: -1px;
+    left: -30px;
+    transition: transform 0.5s ease;
+}
+
+.meeting:hover{
+transform: scale(120%);
+cursor: pointer;
+}
+
+.meeting svg {
+    width: 100%;
+}
+
+.meeting p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+  @media (min-width: 800px) {
+article {
+    background-color: #EDF5F7;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 4rem;
+    min-height: 600px;
+}
+
+.text-content {
+    flex: 1;
+}
+
+    h2 {
+        font-size: 3rem;
+        padding: 60px 0px 10px 60px;
+        text-align: left;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    ul, .end {
+    font-size: 1rem;
+}
+
+    .meeting {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    width: 120px;
+    height: 170px;
+    left: -90px;
+}
+
+.meeting p {
+    position: absolute;
+    top: 40%;
+    left: 75%;
+}
+
+.meeting svg {
+    width: 150%;
+}
+
+    .tilted-image {
+   transform: rotate(-4deg);
+   aspect-ratio: 1 / 1;
+   object-fit: cover;
+   width: 400px;
+   height: 400px;
+   display: block;
+   padding-top: 20px;
+}
+
+.tilted-image2 {
+  position: absolute;
+    transform: rotate(-15deg);
+     aspect-ratio: 1 / 1;
+    width: 400px;
+    height: 400px;
+    top: 5px;
+    right: 10px;
+    z-index: 1;
+    padding-top: 20px;
+}
+  }
+
+</style>

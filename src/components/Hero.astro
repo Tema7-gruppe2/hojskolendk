@@ -24,7 +24,7 @@ const {title, subtitle} = Astro.props;
 </section> -->
 
 <article>
-    <h2>{title}</h2>
+    <h1>{title}</h1>
     <p>{subtitle}</p>
 
      <div class="hero-button">
@@ -66,7 +66,7 @@ const {title, subtitle} = Astro.props;
             align-items: center;
         }
 
-        h2 {
+        h1 {
             font-family: var(--font-primary);
             font-size: 3.5rem;
             font-weight: 100;
@@ -80,14 +80,14 @@ const {title, subtitle} = Astro.props;
         }
 
          @media (max-width: 640px) {
-            h2 {
+            h1 {
                 font-size: 2.1rem;
                 width: 100%;
             }
             
             p {
                 font-size: 0.8rem;
-                width: 75%;
+                width: 80%;
             }
          }
 
