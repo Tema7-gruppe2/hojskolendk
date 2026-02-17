@@ -1,14 +1,14 @@
 ---
-const { title, variant } = Astro.props;
+const { title, variant, href } = Astro.props;
 ---
 
-<button class={variant}>{title}
+<a href={href} class={variant}>{title}
   <slot />
-</button>
+</a>
 
 
 <style>
-    button {
+    a {
         background-color: var(--cta-primary);
         color: var(--color-text-primary);
         border: none;
@@ -23,7 +23,7 @@ const { title, variant } = Astro.props;
         gap: 0.5rem;
     }
 
-    button.secondary {
+    .secondary {
         background-color: var(--cta-secondary);
         color: var(--color-text-secondary);
     }
