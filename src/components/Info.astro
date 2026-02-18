@@ -3,7 +3,8 @@ import Button from "./Button.astro";
 const {title, subtitle, point, point1, point2, point3, point4, titleunder, titleunder2, image, yoga} = Astro.props;
 ---
 
-<article class="info-article">
+<article class="info-container">
+    <div  class="info-article">
     <div class="text-content">
     <h2>{title}</h2>
     <p>{subtitle}</p>
@@ -37,6 +38,16 @@ const {title, subtitle, point, point1, point2, point3, point4, titleunder, title
 </button>
 </div>
 </div>
+</div>
+
+<div class="scrollindicator">
+    <a href="#scrolltoform">
+  <svg width="66" height="33" viewBox="0 0 66 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="64.186" y1="1.48538" x2="32.9539" y2="29.6454" stroke="black" stroke-width="4"/>
+<line x1="35.0995" y1="30.6977" x2="1.30745" y2="1.51368" stroke="black" stroke-width="4"/>
+</svg></a>
+  
+</div>
 </article>
 
 
@@ -51,9 +62,10 @@ const {title, subtitle, point, point1, point2, point3, point4, titleunder, title
 
 <style>
 
-.info-article {
+
+.info-container {
 background-color: #EDF5F7;
-height: 900px;
+height: 90vh;;
 
 }
     
@@ -172,6 +184,36 @@ cursor: pointer;
 
 
 }
+
+.scrollindicator {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+   
+    
+    a {
+    svg {
+        width: 40px;
+        height: 40px;
+        animation: bounce 3s infinite;
+        
+
+    
+    }
+}
+}
+
+@keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-15px);
+            }
+            60% {
+                transform: translateY(-7.5px);
+            }
+        }
 
 [popover]::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
