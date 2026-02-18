@@ -3,29 +3,111 @@ import Button from './Button.astro';
 ---
 
 <section class="tak">
-  <div class="container">
-    <div class="subtitle">Online infomøde</div>
-    <h1 class="title">Tak for din tilmelding</h1>
-      <p>
-        Du vil modtage en bekræftelse og et link til online mødet på email
-        inden for de næste 5 minutter.
-      </p>
-      <p class="normal">
-        Hvis ikke du modtager en mail, så tag kontakt til os på tlf.
-        <span class="highlight">7027 9007</span>
-        eller
-        <a href="mailto:info@hojskolendk.dk" class="highlight">info@hojskolendk.dk</a>.
-      </p>
+  <div class="tak__wrap">
+    <div class="tak__card">
+      <p class="tak__kicker">Online infomøde</p>
+      <h1 class="tak__title">Tak for din tilmelding</h1>
 
-      <p>Vi glæder os til at møde dig!</p>
+      <div class="tak__divider"></div>
+
+      <div class="tak__content">
+        <p class="tak__lead">
+          Du vil modtage en bekræftelse og et link til online mødet på email
+          inden for de næste 5 minutter.
+        </p>
+
+        <p>
+          Hvis ikke du modtager en mail, så tag kontakt til os på tlf.
+          <span class="tak__highlight">7027 9007</span>
+          eller
+          <a href="mailto:info@hojskolendk.dk" class="tak__highlight">info@hojskolendk.dk</a>.
+        </p>
+
+        <p class="tak__closing">Vi glæder os til at møde dig!</p>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .tak .container { max-width: 600px; margin: 0 auto; padding: 80px 20px; text-align: center; }
-  .tak .subtitle { font-family: var(--font-secondary); color: var(--color-text-secondary); font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; }
-  .tak .title { font-family: var(--font-primary); color: var(--color-text-primary); font-size: 2rem; font-weight: bold; margin-bottom: 1.5rem; }
-  .tak .text-block p { font-family: var(--font-secondary); color: var(--color-text-primary); font-size: 1rem; margin-bottom: 1.5rem; }
-  .tak .highlight { color: var(--color-primary); font-weight: bold; }
+.tak {
+  background: #fff;
+  color: #0b0f18;
+}
+
+.tak__wrap {
+  padding: 80px 16px 100px;
+  display: grid;
+  place-items: center;
+}
+
+.tak__card {
+  width: min(720px, 100%);
+  text-align: center;
+}
+
+/* Online infomøde */
+.tak__kicker {
+  font-size: 14px;
+  font-weight: 800;
+  font-family: var(--font-primary);
+  color: var(--cta-primary);
+  letter-spacing: 0.02em;
+margin-bottom: 20px;
+}
+
+
+/* Tak for din tilmelding */
+.tak__title {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 28px;
+  font-family: var(--font-secondary);
+}
+
+/* Divider */
+.tak__divider {
+  height: 1px;
+  background: #d9d9d9;
+  width: 100%;
+  margin: 0 auto 40px;
+}
+
+/* Tekst container */
+.tak__content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Brødtekst */
+.tak__content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 22px;
+  font-family: var(--font-secondary);
+}
+
+/* Første tekstlinje */
+.tak__lead {
+  font-weight: 700;
+  color: #0e1224;
+}
+
+/* Orange highlight */
+.tak__highlight {
+  color: var(--cta-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.tak__highlight:hover {
+  text-decoration: underline;
+}
+
+.tak__closing {
+  margin-top: 10px;
+}
+
 </style>
