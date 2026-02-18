@@ -1,3 +1,282 @@
 ---
 import Button from '../components/Button.astro';
+import Layout from '../layouts/Layout.astro';
+const {} = Astro.props;
 ---
+
+<section class="signup">
+  <header class="signup__header">
+    <p class="signup__kicker">Online infomøde</p>
+    <h1 class="signup__title">Tilmelding</h1>
+
+    <div class="signup__progress">
+      <div class="signup__progress-label">Trin 3 af 3</div>
+      <div class="signup__bar" role="progressbar" aria-label="Trin 1 af 3" aria-valuemin="0" aria-valuemax="100" aria-valuenow="33">
+        <div class="signup__bar-fill" style="width:100%"></div>
+      </div>
+    </div>
+  </header>
+  <div class="signup__divider" aria-hidden="true"></div>
+  </section>
+
+   <div class="bekraeft-columns">
+  <article class="bekraeft-info">
+    <p class="bekraeft">Bekræft oplysninger</p>
+    <h2>Kontaktinfo</h2>
+    <p class="p-top">Fornavn</p>
+    <p class="p-bottom">Jens</p>
+    <p class="p-top">Efternavn</p>
+    <p class="p-bottom">Jensen</p>
+    <p class="p-top">Mobilnummer</p>
+    <p class="p-bottom">+45123456</p>
+    <p class="p-top">E-mail</p>
+    <p class="p-bottom">info@hojskolendk.dk</p>
+    <p class="p-top">Deltager i mødet</p>
+    <p class="p-bottom">2/3-2026 kl. 18.30-20.00</p>
+    </article>
+     <div class="signup__divider_2" aria-hidden="true"></div>
+    <article class="interesse">
+    <h2>Interesse</h2>
+    <p class="p-top">Opholdstype</p>
+    <p class="p-bottom">Sommerhøjskole</p>
+    <p class="p-top">Rejsedestinationer</p>
+    <ul>
+    <li>Maldiverne, Sri Lanka, Bali, Gili Islands, Japan og Australien</li>
+    <li>Australien, New Zealand, Vietnam, Bali, Gili Islands & Lombok</li>
+    </ul>
+  </article>
+</div>
+
+<div>
+<h3 class="accept-terms">Acceptér betingelser</h3>
+</div>
+  
+  <section class="terms-text">
+    <div>
+  <label>
+    <input type="checkbox">
+    <span>Ved tilmelding giver du os tilladelse til at kontakte dig m. påmindelser og opfølgning.</span>
+    </label>
+    </div>
+     <div>
+    <label>
+    <input type="checkbox">
+    <span>Jeg har læst jeres privatlivspolitik og generelle bestemmelser og er indforstået med begge.**</span>
+  </label>
+  </div>
+  </section>
+
+<div class="bekraeft-button">
+    <div>
+ <Button href="/trin2" variant="tertiary">Tilbage</Button>
+    </div>
+    <div>
+<Button href="/trin4" variant="secondary-2">Indsend</Button>
+    </div>
+  </div>
+
+  <style> 
+    .signup {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 32px 16px 56px;
+      font-family: var(--font-secondary);
+      color: #111;
+    }
+
+    .signup__header {
+      text-align: center;
+      padding-top: 16px;
+      background-color: white;
+    }
+
+    .signup__kicker {
+      margin: 0 0 10px;
+      font-weight: 700;
+      color: #c85a12; /* orange like screenshot */
+      letter-spacing: 0.02em;
+    }
+
+    .signup__title {
+      margin: 0;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 800;
+    }
+
+    .signup__progress {
+      margin-top: 36px;
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+    }
+
+    .signup__progress-label {
+      font-size: 14px;
+      color: #111;
+      opacity: 0.9;
+    }
+
+    .signup__bar {
+      width: min(520px, 85vw);
+      height: 6px;
+      border-radius: 999px;
+      background: #d7d7d7;
+      overflow: hidden;
+    }
+
+    .signup__bar-fill {
+      height: 100%;
+      background: #c85a12;
+      border-radius: 999px;
+    }
+
+    .signup__divider {
+      height: 2px;
+      background-color: rgb(0, 0, 0);
+      margin: 70px 0 36px;
+      opacity: 0.2;
+    }
+
+     .signup__divider_2 {
+      height: 2px;
+      background-color: rgb(0, 0, 0);
+      opacity: 0.2;
+      margin: 0 3rem; 
+    }
+
+    .bekraeft {
+        font-family: var(--font-secondary);
+        font-weight: 500;
+    }
+
+    h2 {
+        font-family: var(--font-primary);
+        padding: 2.5rem 0rem 1rem 0rem;
+    }
+
+    .interesse h2 {
+    padding-bottom: 2rem;
+}
+
+    h3 {
+        font-family: var(--font-secondary);
+        padding: 2.5rem 0rem 1.5rem 0rem;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+
+    .accept-terms {
+        padding: 1.8rem 4rem;
+        padding-top: 4rem;
+    }
+
+    .p-top {
+        font-family: var(--font-secondary);
+        font-weight: bold;
+        padding: 0.2rem 0rem 0rem 0rem;
+    }
+
+   .p-bottom {
+        font-family: var(--font-secondary);
+        font-weight: 400;
+        padding: 0.2rem 0rem 2rem 0rem;
+    }
+
+    ul { 
+        display: grid;
+    font-family: var(--font-secondary);
+    padding: 0.2rem 1rem 0rem 1rem;
+    font-weight: normal;
+    gap: 20px;
+    }
+
+    article {
+        padding: 0rem 4rem
+    }
+
+    section {
+        padding: 0rem 4rem;
+    }
+
+    #text {
+        padding-right: 2rem;
+    }
+
+    .terms-text {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        font-family: var(--font-secondary);
+    }
+
+
+
+.terms-text label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+}
+
+input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: #ce5501;
+}
+
+.bekraeft-button {
+  display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+   margin-top: 2rem;
+    padding: 0rem 4rem;
+}
+
+
+@media (min-width: 900px) {
+  .bekraeft-columns {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 920px;
+    margin: 0 auto;
+    
+  }
+
+  .signup__divider_2 {
+    width: 2px;
+    height: auto;
+    align-self: stretch;
+    margin: 0 0rem; 
+  }
+
+  .bekraeft-columns article {
+    flex: 1;
+    padding: 0rem 7rem;
+  }
+
+.interesse h2 {
+    padding-top: 4.1rem;
+}
+
+.terms-text,
+.accept-terms,
+.bekraeft-button {
+  padding: 0 4rem;
+  max-width: 820px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.bekraeft-button {
+margin-bottom: 3.5rem;
+margin-top: 2rem;
+}
+
+.terms-text span {
+  max-width: 320px;
+}
+
+}
+</style>
