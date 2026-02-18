@@ -1,28 +1,165 @@
 ---
 const { title, subtitle, labeltext, copy, inputlabel,   } = Astro.props;
+
 ---
 
 
-<section>
+<section class="reserver-bg">
 
-<div>
-<span>{labeltext}</span>
+<article>
+<span class="text-above-title">{labeltext}</span>
 <h2>{title}</h2>
 <h3>{subtitle}</h3>
 <p>{copy}</p>
-</div>
+</article>
 
-<form>
-     <label for="ophold">Vælg ophold:</label>
-<select id="ophold" name="ophold">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="fiat">Fiat</option>
-  <option value="audi">Audi</option>
+<form class="form-flex">
+    <div>
+     <label class="input-label" for="ophold">Vælg ophold:</label>
+<select class="input-look" id="ophold" name="ophold">
+  <option value="maldivs-srilanka-bali">Maldiverne, Sri Lanka, Bali, Gili Islands, Japan og Australien</option>
+  <option value="costarica-mexico-colombia">Costa Rica, Mexico og Colombia</option>
+  <option value="aus-nz-vietnam-bali">Australien, New Zealand, Vietnam, Bali, Gili Islands & Lombok</option>
+  <option value="indien-nepal-thailand">Indien, Nepal, Thailand, Vietnam og Sri Lanka</option>
+  <option value="hawaii-aus-japan">Hawaii, Australien, Japan, Bali og Gili Islands</option>
+  <option value="maldives-srilanka">Maldiverne, Sri Lanka, Bali og Gili Islands</option>
+  <option value="brasil-bolivia-colombia">Brasilien, Bolivia, Colombia, Ecuador, Peru & Argentina</option>
+  <option value="aus-japan-bali">Australien, Japan, Bali og Gili Islands</option>
+  <option value="brasil-colombia-costa">Brasilien, Colombia, Costa Rica & Mexico</option>
+  <option value="bali-lombok-sommer">Sommerhøjskole - Bali, Lombok og Gili</option>
+  <option value="sydkorea-japan-sommer">Sommerhøjskole - Sydkorea & Japan</option>
+  <option value="japan-sommer">Sommerhøjskole - Japan</option>
+  <option value="brasil-ecuador-amazon-sommer">Sommerhøjskole - Brasilien, Equador & Amazonas</option>
+  <option value="brasil-argentina-peru-sommer">Sommerhøjskole - Brasilien, Argentina, Peru, Ecuador & Galapagos</option>
 </select>
+</div>
+<button class="button-reserver">Videre</button>
 
 </form>
 
 </section>
 
+<style>
 
+    
+
+.reserver-bg {
+    background: url(/images/float.webp);
+    background-size: cover;
+    padding: 80px 60px;
+}
+
+  .text-above-title {
+    font-family: var(--font-secondary);
+    color: var(--color-text-secondary);
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    
+  }
+
+  h2 {
+    font-family: var(--font-primary);
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 100;
+    margin-bottom: 1.5rem;
+   
+    
+  }
+
+  h3 {
+    font-family: var(--font-secondary);
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    
+  }
+
+  p {
+    font-family: var(--font-secondary);
+    color: var(--color-text-primary);
+    font-size: 0.8rem;
+    max-width: 65ch;
+    margin-bottom: 2.5rem;
+ 
+   
+  }
+
+  .input-label {
+    font-family: var(--font-secondary);
+    color: var(--color-text-primary);
+    display: block;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    font-weight: 600;
+  }
+
+  .input-look {
+    width: auto;
+    padding: 9px 20px;
+    font-size: 1rem;
+    border: 1px solid var(--color-text-secondary);
+    border-radius: 4px;
+    margin-top: 0.5rem;
+  }
+
+
+  /* --------- */
+
+  .button-reserver {
+    background-color: var(--cta-primary);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: 4px;
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+    
+
+/* --------- */
+
+
+@media (min-width: 900px) {
+
+        .reserver-bg {
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+            padding: 0 4rem;
+            height: 100vh;
+        
+        }
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+
+    h3{
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+
+    p {
+        font-size: 1rem;
+    }
+
+    
+
+    .input-look {
+    width: 25rem;
+    }
+
+.form-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+}
+}
+</style>
