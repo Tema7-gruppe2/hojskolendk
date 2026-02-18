@@ -3,7 +3,7 @@ import Button from "./Button.astro";
 const {title, subtitle, point, point1, point2, point3, point4, titleunder, titleunder2, image, yoga} = Astro.props;
 ---
 
-<article>
+<article class="info-article">
     <div class="text-content">
     <h2>{title}</h2>
     <p>{subtitle}</p>
@@ -21,6 +21,7 @@ const {title, subtitle, point, point1, point2, point3, point4, titleunder, title
     <img src={yoga} alt="Datoer" class="tilted-image2">
     <div class="image-container">
     <img src={image} alt="Datoer" class="tilted-image">
+    <button popovertarget="pop">
     <div class="meeting">
         <svg xmlns="http://www.w3.org/2000/svg" width="140" height="135" viewBox="0 0 177 172" fill="none">
   <ellipse cx="88.5" cy="85.6566" rx="88.5" ry="85.6566" transform="matrix(-1 0 0 1 177 0)" fill="url(#paint0_linear_1396_1633)"/>
@@ -33,14 +34,24 @@ const {title, subtitle, point, point1, point2, point3, point4, titleunder, title
 </svg>
 <p class="meeting-text">Se datoer for infomøde her!</p>
 </div>
+</button>
 </div>
 </div>
 </article>
 
 
+<article popover id="pop">
+    <div class="popovercontent">
+    <h2>Kommende datoer</h2>
+    <img src="/assets/datoerinfo.svg" alt="datoer for infomøder">
+    </div>
+
+</article>
+
+
 <style>
 
-article {
+.info-article {
 background-color: #EDF5F7;
 height: 900px;
 
@@ -140,8 +151,47 @@ cursor: pointer;
     padding: 0;
 }
 
-  @media (min-width: 800px) {
-article {
+[popover]:popover-open {
+    margin: 8rem auto;
+    background-color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0 2.5rem 2.5rem 2.5rem;
+    width: 80vw;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+.popovercontent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+}
+
+[popover]::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+    @media (min-width: 800px) {
+
+        [popover]:popover-open {
+            max-width: 700px;
+            margin-top: 8rem;
+            padding-bottom: 4rem;
+
+            img {
+                max-width: 500px;
+                height: auto;
+            }
+        }
+.info-article {
     background-color: #EDF5F7;
     display: flex;
     flex-direction: row;
@@ -149,6 +199,7 @@ article {
     gap: 2rem;
     padding: 2rem 4rem;
     min-height: 600px;
+
 }
 
 .text-content {
@@ -210,5 +261,7 @@ article {
     padding-top: 20px;
 }
   }
+
+
 
 </style>
