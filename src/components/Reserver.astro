@@ -1,2 +1,28 @@
 ---
+const { title, subtitle, labeltext, copy, inputlabel,   } = Astro.props;
 ---
+
+
+<section>
+
+<div>
+<span>{labeltext}</span>
+<h2>{title}</h2>
+<h3>{subtitle}</h3>
+<p>{copy}</p>
+</div>
+
+<form>
+     <label for="ophold">Vælg ophold:</label>
+<select id="ophold" name="ophold">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="fiat">Fiat</option>
+  <option value="audi">Audi</option>
+</select>
+
+</form>
+
+</section>
+
+
