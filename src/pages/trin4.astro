@@ -1,11 +1,36 @@
 ---
+import Reserver from '../components/Reserver.astro';
+import Moeder from '../components/Moeder.astro';
+import Info from '../components/Info.astro';
+import Tak from '../components/Tak.astro';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Nav from '../components/Nav.astro';
+import Button from '../components/Button.astro';
 import Footer from '../components/Footer.astro';
-import Tak from '../components/Tak.astro';
 ---
 
 <Layout>
-  <Tak />
-</Layout>
+<Info
+title="Online infomøder"
+subtitle="Vi præsenterer vores eventyrlige højskole på et online møde og fortæller en masse om:"
+point="Hvem er vi"
+point1="Adventure, aktiviteter og oplevelser"
+point2="En “almindelig” dag på højskole i udlandet"
+point3="Den levende og aktive måde vi underviser på (glem kedelige klasseværelser)"
+point4="Økonomi, lommepenge, pakkeliste, friuger, afrejsemødet etc."
+titleunder="Vi runder af med en snak med tidligere elever, rejseledere og ejerne. Så giv den bare gas med spørgsmål!" 
+titleunder2="Vi glæder os til at se dig!"
+image="/images/info.webp"
+yoga="/images/yoga.webp">
+</Info>
+<Tak></Tak>
+<Moeder></Moeder>
+<Reserver 
+labeltext="Højskoleophold"
+title="Reservér en plads"
+subtitle="Gå ikke glip af en plads på det eventyr du drømmer om!"
+copy="Det er gratis og helt uforpligtende at reservere en plads på et højskoleophold. Det sikrer dig, at du får besked inden der er udsolgt på lige netop den tur, du vil med på.">
+</Reserver>
+
+</Layout> 
