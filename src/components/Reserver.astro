@@ -1,5 +1,6 @@
 ---
 const { title, subtitle, labeltext, copy, inputlabel,   } = Astro.props;
+import "../css/custom.css";
 
 ---
 
@@ -9,13 +10,14 @@ const { title, subtitle, labeltext, copy, inputlabel,   } = Astro.props;
 <article>
 <span class="text-above-title">{labeltext}</span>
 <h2>{title}</h2>
+<div></div>
 <h3>{subtitle}</h3>
 <p>{copy}</p>
 </article>
 
 <form class="form-flex">
-    <div>
-     <label class="input-label" for="ophold">Vælg ophold:</label>
+<div class="input-label-flex">
+<label class="input-label" for="ophold">Vælg ophold:</label>
 <select class="input-look" id="ophold" name="ophold">
   <option value="maldivs-srilanka-bali">Maldiverne, Sri Lanka, Bali, Gili Islands, Japan og Australien</option>
   <option value="costarica-mexico-colombia">Costa Rica, Mexico og Colombia</option>
@@ -33,7 +35,7 @@ const { title, subtitle, labeltext, copy, inputlabel,   } = Astro.props;
   <option value="brasil-argentina-peru-sommer">Sommerhøjskole - Brasilien, Argentina, Peru, Ecuador & Galapagos</option>
 </select>
 </div>
-<button class="button-reserver">Videre</button>
+<a href="/reserver" class="button-reserver">Videre</a>
 
 </form>
 
@@ -81,7 +83,7 @@ const { title, subtitle, labeltext, copy, inputlabel,   } = Astro.props;
     font-family: var(--font-secondary);
     color: var(--color-text-primary);
     font-size: 0.8rem;
-    max-width: 65ch;
+    max-width: 55ch;
     margin-bottom: 2.5rem;
  
    
@@ -90,14 +92,14 @@ const { title, subtitle, labeltext, copy, inputlabel,   } = Astro.props;
   .input-label {
     font-family: var(--font-secondary);
     color: var(--color-text-primary);
-    display: block;
     font-size: 1rem;
     margin-top: 1.5rem;
     font-weight: 600;
+    
   }
 
   .input-look {
-    width: auto;
+    width: 15rem;
     padding: 9px 20px;
     font-size: 1rem;
     border: 1px solid var(--color-text-secondary);
@@ -105,31 +107,46 @@ const { title, subtitle, labeltext, copy, inputlabel,   } = Astro.props;
     margin-top: 0.5rem;
   }
 
+   .input-label-flex {
+    display: flex;
+    flex-direction: column;
+
+    }
+
+
+
+    .form-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    align-content:space-between;
+}
 
   /* --------- */
 
   .button-reserver {
     background-color: var(--cta-primary);
     color: var(--color-text-primary);
-    border: none;
     border-radius: 4px;
     padding: 12px 24px;
     font-size: 0.9rem;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 1rem;
+    margin-top: 3.2rem;
   }
     
 
 /* --------- */
 
 
-@media (min-width: 900px) {
+
+@media (min-width: 800px) {
 
         .reserver-bg {
             display: flex;
+            flex-direction: row;
             align-items: center;
-            gap: 5rem;
+            gap: 10rem;
             padding: 0 4rem;
             height: 100vh;
         
@@ -151,15 +168,12 @@ const { title, subtitle, labeltext, copy, inputlabel,   } = Astro.props;
     }
 
     
+}
 
-    .input-look {
-    width: 25rem;
+@media (min-width: 900px) {
+    .input-look{
+        width: 100%;
     }
+}
 
-.form-flex {
-    display: flex;
-    flex-direction: row;
-    gap: 1.2rem;
-}
-}
 </style>

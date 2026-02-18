@@ -1,5 +1,3 @@
-
-
 ---
 const destinationOptions = [
   { value: "asia-oceania-1", label: "Maldiverne, Sri Lanka, Bali, Gili Islands, Japan & Australien", img: "/images/verdenskort.webp" },
@@ -9,20 +7,30 @@ const destinationOptions = [
   { value: "asia-oceania-5", label: "Maldiverne, Sri Lanka, Bali, Gili Islands, Japan & Australien", img: "/images/verdenskort.webp" },
   { value: "asia-oceania-6", label: "Maldiverne, Sri Lanka, Bali, Gili Islands, Japan & Australien", img: "/images/verdenskort.webp" },
 ];
+// RegistrationStep2.astro
+// En ren Astro-component (ingen framework) der matcher layoutet i billedet.
+const {
+  step = 1,
+  totalSteps = 3,
+  title = "Online infomøde",
+  heading = "Tilmelding",
+} = Astro.props;
+
+const progressPct = Math.round((step / totalSteps) * 100);
 ---
 
-<section class="signup">
-  <header class="signup__header">
-    <p class="signup__kicker">Online infomøde</p>
-    <h1 class="signup__title">Tilmelding</h1>
+<section class="wrap">
+  <div class="card" role="region" aria-label="Tilmelding">
+    <p class="kicker">{title}</p>
+    <h1 class="h1">{heading}</h1>
 
-    <div class="signup__progress">
-      <div class="signup__progress-label">Trin 1 af 3</div>
-      <div class="signup__bar" role="progressbar" aria-label="Trin 1 af 3" aria-valuemin="0" aria-valuemax="100" aria-valuenow="33">
-        <div class="signup__bar-fill" style="width:33%"></div>
-      </div>
+    <div class="step" aria-label={`Trin ${step} af ${totalSteps}`}>
+      <span>Trin {step} af {totalSteps}</span>
     </div>
-  </header>
+
+    <div class="progress" role="progressbar" aria-valuenow={progressPct} aria-valuemin="0" aria-valuemax="100">
+      <div class="bar" style={`width:${progressPct}%`}></div>
+    </div>
 
   <div class="signup__divider" aria-hidden="true"></div>
 
@@ -62,69 +70,78 @@ const destinationOptions = [
     </fieldset>
 
     <div class="signup__actions">
-      <button class="signup__next" type="submit">Næste</button>
+      <a class="signup__next" href="/trin2">Næste</a>
     </div>
   </form>
 
   <style>
-    .signup {
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 32px 16px 56px;
-      font-family: var(--font-secondary);
-      color: #111;
-    }
+      :global(body) {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: #fff;
+    color: #0b0f18;
+  }
 
-    .signup__header {
-      text-align: center;
-      padding-top: 16px;
-      background-color: white;
-    }
+  .wrap {
+    min-height: 70vh;
+    display: grid;
+    place-items: center;
+    padding: 32px 16px;
+  }
 
-    .signup__kicker {
-      margin: 0 0 10px;
-      font-weight: 700;
-      color: #c85a12; /* orange like screenshot */
-      letter-spacing: 0.02em;
-    }
+  .card {
+    width: min(720px, 100%);
+    background: #fff;
+    text-align: center;
+  }
 
-    .signup__title {
-      margin: 0;
-      font-size: clamp(2.2rem, 4vw, 3rem);
-      font-weight: 800;
-    }
+  .kicker {
+    margin: 0 0 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--cta-primary);
+    letter-spacing: 0.02em;
+  }
 
-    .signup__progress {
-      margin-top: 36px;
-      display: grid;
-      justify-items: center;
-      gap: 10px;
-    }
+  .h1 {
+    margin: 0 0 18px;
+    font-size: 50px;
+    line-height: 1.05;
+    font-weight: 900;
+  }
 
-    .signup__progress-label {
-      font-size: 14px;
-      color: #111;
-      opacity: 0.9;
-    }
+  .step {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0b0f18;
+    margin-bottom: 10px;
+  }
 
-    .signup__bar {
-      width: min(520px, 85vw);
-      height: 6px;
-      border-radius: 999px;
-      background: #d7d7d7;
-      overflow: hidden;
-    }
+  .progress {
+    width: min(360px, 100%);
+    height: 6px;
+    background: #d9d9d9;
+    border-radius: 999px;
+    margin: 0 auto 22px;
+    overflow: hidden;
+  }
 
-    .signup__bar-fill {
-      height: 100%;
-      background: #c85a12;
-      border-radius: 999px;
-    }
+  .bar {
+    height: 100%;
+    background: var(--cta-primary);
+    border-radius: 999px;
+  }
+
+  .form {
+    border-top: 1px solid #d9d9d9;
+    padding-top: 22px;
+    margin-top: 6px;
+  }
 
     .signup__divider {
       height: 2px;
       background-color: rgb(0, 0, 0);
-      margin: 70px 0 36px;
+      margin: 20px 0 36px;
       opacity: 0.2;
     }
 
@@ -236,19 +253,22 @@ const destinationOptions = [
     }
 
     .signup__next {
-      min-width: 140px;
-      height: 44px;
-      border: 0;
-      border-radius: 6px;
-      background: #c85a12;
-      color: #fff;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 160ms ease, background-color 160ms ease;
+    min-width: 110px;
+    height: 34px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 12px;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--cta-primary);
+    color: white;
     }
 
     .signup__next:hover {
-      background: #a94b0f;
       transform: translateY(-1px);
     }
 
