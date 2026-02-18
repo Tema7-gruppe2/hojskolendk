@@ -1,3 +1,232 @@
 ---
 import Button from '../components/Button.astro';
+// RegistrationStep2.astro
+// En ren Astro-component (ingen framework) der matcher layoutet i billedet.
+const {
+  step = 2,
+  totalSteps = 3,
+  title = "Online infomøde",
+  heading = "Tilmelding",
+} = Astro.props;
+
+const progressPct = Math.round((step / totalSteps) * 100);
 ---
+
+<section class="wrap">
+  <div class="card" role="region" aria-label="Tilmelding">
+    <p class="kicker">{title}</p>
+    <h1 class="h1">{heading}</h1>
+
+    <div class="step" aria-label={`Trin ${step} af ${totalSteps}`}>
+      <span>Trin {step} af {totalSteps}</span>
+    </div>
+
+    <div class="progress" role="progressbar" aria-valuenow={progressPct} aria-valuemin="0" aria-valuemax="100">
+      <div class="bar" style={`width:${progressPct}%`}></div>
+    </div>
+
+    <form class="form" method="post">
+      <div class="grid">
+        <label class="field">
+          <span class="label">Navn</span>
+          <input class="input" name="fornavn" type="text" autocomplete="given-name" />
+        </label>
+
+        <label class="field">
+          <span class="label">Efternavn</span>
+          <input class="input" name="efternavn" type="text" autocomplete="family-name" />
+        </label>
+
+        <label class="field">
+          <span class="label">Mobilnummer</span>
+          <input class="input" name="mobil" type="tel" autocomplete="tel" inputmode="tel" />
+        </label>
+
+        <label class="field">
+          <span class="label">E-mail</span>
+          <input class="input" name="email" type="email" autocomplete="email" />
+        </label>
+
+        <label class="field full">
+          <span class="label">Hvilket møde vil du deltage i?</span>
+          <select class="input" name="medie">
+            <option value="" selected disabled>Vælg…</option>
+            <option value="teams">06 Januar 2026 - Kl 18:30 - 20:00</option>
+            <option value="zoom">03 Februar 2026 - Kl. 18.30 – 20.00</option>
+            <option value="meet">17 Marts 2026 - Kl. 18.30 – 20.00</option>
+            <option value="andet">14 April 2026 - Kl. 18.30 – 20.00</option>
+            <option value="andet">05 Maj 2026 - Kl. 18.30 – 20.00</option>
+            <option value="andet">09 Juni 2026 - Kl. 18.30 – 20.00</option>
+          </select>
+        </label>
+
+        <label class="field full">
+          <span class="label">Hvor har du hørt om os?</span>
+          <select class="input" name="kilde">
+            <option value="" selected disabled>Vælg…</option>
+            <option value="social">Sociale medier</option>
+            <option value="anbefaling">Anbefaling</option>
+            <option value="andet">Andet</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-back" href="/trin1">Tilbage</a>
+        <a class="btn btn-next" href="/trin3">Næste</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<style>
+  :global(body) {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: #fff;
+    color: #0b0f18;
+  }
+
+  .wrap {
+    min-height: 70vh;
+    display: grid;
+    place-items: center;
+    padding: 32px 16px;
+  }
+
+  .card {
+    width: min(720px, 100%);
+    background: #fff;
+    text-align: center;
+  }
+
+  .kicker {
+    margin: 0 0 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--cta-primary);
+    letter-spacing: 0.02em;
+  }
+
+  .h1 {
+    margin: 0 0 18px;
+    font-size: 50px;
+    line-height: 1.05;
+    font-weight: 900;
+  }
+
+  .step {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0b0f18;
+    margin-bottom: 10px;
+  }
+
+  .progress {
+    width: min(360px, 100%);
+    height: 6px;
+    background: #d9d9d9;
+    border-radius: 999px;
+    margin: 0 auto 22px;
+    overflow: hidden;
+  }
+
+  .bar {
+    height: 100%;
+    background: var(--cta-primary);
+    border-radius: 999px;
+  }
+
+  .form {
+    border-top: 1px solid #d9d9d9;
+    padding-top: 22px;
+    margin-top: 6px;
+  }
+
+  .grid {
+    width: min(520px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 22px;
+    text-align: left;
+  }
+
+  .field {
+    display: grid;
+    gap: 6px;
+  }
+
+  .field.full {
+    grid-column: 1 / -1;
+  }
+
+  .label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0b0f18;
+  }
+
+  .input {
+    height: 34px;
+    border: 1px solid #bdbdbd;
+    border-radius: 3px;
+    padding: 0 10px;
+    font-size: 14px;
+    outline: none;
+    background: #fff;
+  }
+
+  select.input {
+    padding-right: 34px;
+  }
+
+  .input:focus {
+    border-color: #0b0f18;
+    box-shadow: 0 0 0 2px rgba(11, 15, 24, 0.08);
+  }
+
+  .actions {
+    width: min(520px, 100%);
+    margin: 28px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .actions .btn {
+    min-width: 110px;
+    height: 34px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 12px;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .btn-back {
+    background: #0b0f18;
+    color: #fff;
+  }
+  .btn-back:hover {
+    transform: translateY(-1px);
+  }
+  .btn-next {
+    background: var(--cta-primary);
+    color: #fff;
+  }
+  .btn-next:hover {
+    transform: translateY(-1px);
+  }
+
+
+  @media (max-width: 520px) {
+    .h1 { font-size: 36px; }
+    .grid { grid-template-columns: 1fr; }
+    .field.full { grid-column: auto; }
+  }
+</style>
