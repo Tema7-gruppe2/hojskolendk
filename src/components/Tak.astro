@@ -1,67 +1,34 @@
 ---
-import Button from '../components/Button.astro';
+import Button from './Button.astro';
 ---
 
 <section class="tak">
-    <div class="container">
-        <div class="subtitle">Online infomøde</div>
-        <h1 class="title">Tak for din tilmelding</h1>
+  <div class="container">
+    <div class="subtitle">Online infomøde</div>
+    <h1 class="title">Tak for din tilmelding</h1>
 
-        <div class="text-block">
-            <p>
-                Du vil modtage en bekræftelse og et link til online mødet på email
-                inden for de næste 5 minutter.
-            </p>
+    <div class="text-block">
+      <p>
+        Du vil modtage en bekræftelse og et link til online mødet på email
+        inden for de næste 5 minutter.
+      </p>
 
-            <p class="normal">
-                Hvis ikke du modtager en mail, så tag kontakt til os på tlf.
-                <span class="highlight">7027 9007</span>
-                eller
-                <a href="mailto:info@hojskolendk.dk" class="highlight">
-                    info@hojskolendk.dk
-                </a>.
-            </p>
+      <p class="normal">
+        Hvis ikke du modtager en mail, så tag kontakt til os på tlf.
+        <span class="highlight">7027 9007</span>
+        eller
+        <a href="mailto:info@hojskolendk.dk" class="highlight">info@hojskolendk.dk</a>.
+      </p>
 
-            <p>
-                Vi glæder os til at møde dig!
-            </p>
-        </div>
+      <p>Vi glæder os til at møde dig!</p>
     </div>
+  </div>
 </section>
 
 <style>
-.tak .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.tak .subtitle {
-    font-family: var(--font-secondary);
-    color: var(--color-text-secondary);
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-.tak .title {
-    font-family: var(--font-primary);
-    color: var(--color-text-primary);
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-}
-
-.tak .text-block p {
-    font-family: var(--font-secondary);
-    color: var(--color-text-primary);
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.tak .highlight {
-    color: var(--color-primary);
-    font-weight: bold;
-}
+  .tak .container { max-width: 600px; margin: 0 auto; padding: 80px 20px; text-align: center; }
+  .tak .subtitle { font-family: var(--font-secondary); color: var(--color-text-secondary); font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; }
+  .tak .title { font-family: var(--font-primary); color: var(--color-text-primary); font-size: 2rem; font-weight: bold; margin-bottom: 1.5rem; }
+  .tak .text-block p { font-family: var(--font-secondary); color: var(--color-text-primary); font-size: 1rem; margin-bottom: 1.5rem; }
+  .tak .highlight { color: var(--color-primary); font-weight: bold; }
 </style>
